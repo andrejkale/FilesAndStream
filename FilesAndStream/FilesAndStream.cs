@@ -29,7 +29,7 @@ namespace FilesAndStream
         }
 
         //2. Скопіюйте вміст одного символьного потоку в інший потік, одночасно роблячи заміну символів. Правила заміни вказати самостійно.
-        public static void copySymbolStreamToOtherStream(string fileForReading, string fileForWriting) 
+        public static void CopySymbolStreamToOtherStream(string fileForReading, string fileForWriting) 
         {
             StreamReader fileIn;
             StreamWriter fileOut;
@@ -46,8 +46,25 @@ namespace FilesAndStream
             catch (IOException ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
 
+        // 3. Виведіть на екран імена файлів, які знаходяться в заданому каталозі та всіх його підкаталогах.
+        public static void ShowFileNameInDirectory(string path, string pattern) 
+        {
+            try
+            {
+                IEnumerable<string> allFiles = Directory.EnumerateFiles(path, pattern, SearchOption.AllDirectories);
+                foreach (string fileName in allFiles)
+                {
+                    Console.WriteLine(fileName);
+                }
+            } catch (IOException ex) 
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
+
+    
 }
