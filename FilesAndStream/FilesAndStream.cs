@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -59,12 +60,39 @@ namespace FilesAndStream
                 {
                     Console.WriteLine(fileName);
                 }
-            } catch (IOException ex) 
+            } 
+            catch (IOException ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        // 4. Написати програму, яка створить текстовий файл та запише в нього список файлів (шлях, ім'я, дата створення) із заданого каталогу.
+
+        public static void CreateFileWithListOfFilesInDirectory(string fileName, string dirPath) 
+        {
+            try
+            {
+                StreamWriter fileWriter = new StreamWriter(new FileStream(fileName, FileMode.Create, FileAccess.Write));
+                FileInfo fileInfo;
+                StringBuilder fileNameWithDate = new StringBuilder();
+
+                IEnumerable<string> allFiles = Directory.EnumerateFiles(dirPath, "*", SearchOption.TopDirectoryOnly);
+                foreach (string file in allFiles)
+                {
+                    fileInfo = new FileInfo(file);
+                    fileNameWithDate.Append(file).Append(" ").Append(fileInfo.CreationTime).Append("\n");
+                }
+
+                fileWriter.WriteLine(fileNameWithDate);
+                fileWriter.Close();
+            }
+            catch (IOException ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
     }
 
-    
+
 }
