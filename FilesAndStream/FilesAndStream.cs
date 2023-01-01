@@ -92,6 +92,39 @@ namespace FilesAndStream
                 Console.WriteLine(ex.Message);
             }
         }
+
+        // 5. Дано текстовий файл. Вивести кількість символів і рядків, що містяться в ньому.
+
+        public static void CountLinesAndSymbolsInTextFile(string path)
+        {
+            int linesCount = 0;
+            int nextLine = '\n';
+            int symbolCount = 0;
+
+            StreamReader streamReaderLines = new StreamReader(new BufferedStream(File.OpenRead(path), 10 * 1024 * 1024));
+            StreamReader streamReaderSymbols = new StreamReader(new BufferedStream(File.OpenRead(path), 10 * 1024 * 1024));
+
+            while (!streamReaderLines.EndOfStream)
+            {
+                if (streamReaderLines.Read() == nextLine) 
+                {
+                    linesCount++;
+                }
+            }
+
+            while (!streamReaderSymbols.EndOfStream)
+            {
+                symbolCount += streamReaderSymbols.ReadLine().Length;
+
+            }
+
+            streamReaderLines.Close();
+            streamReaderSymbols.Close();
+
+            Console.WriteLine("Lines in text file = " + linesCount);
+            Console.WriteLine("Symbols in text file = " + symbolCount);
+
+        }
     }
 
 
