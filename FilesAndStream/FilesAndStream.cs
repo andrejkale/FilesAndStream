@@ -149,6 +149,29 @@ namespace FilesAndStream
                 }
             }
         }
+        // 8. Замінити числа у файлі, створеному у пункті 7 їх квадратами.
+        public static void ReplaceNumberToTheirSquares(string path)
+        {
+            using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.ReadWrite))
+            {
+                using (BinaryReader reader = new BinaryReader(file)) 
+                {
+                    using (BinaryWriter writer = new BinaryWriter(file)) 
+                    { 
+                        while (reader.BaseStream.Position < reader.BaseStream.Length)
+                        {
+                            int number = reader.ReadInt32();
+                            int squaresOfnumber = (int) Math.Pow(number, 2);
+                            writer.Write(squaresOfnumber);
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
     }
 
 
