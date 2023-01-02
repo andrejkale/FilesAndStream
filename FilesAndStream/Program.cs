@@ -5,4 +5,5 @@ FilesAndStream.FilesAndStream.CreateFileWithListOfFilesInDirectory("listOfFiles.
     , "E:\\ХНУРЄ\\C#\\OOP\\FilesAndStream\\FilesAndStream\\FilesAndStream\\bin\\Debug\\net6.0");
 FilesAndStream.FilesAndStream.CountLinesAndSymbolsInTextFile("E:\\ХНУРЄ\\C#\\OOP\\FilesAndStream\\FilesAndStream\\FilesAndStream\\bin\\Debug\\net6.0\\newText.txt");
 FilesAndStream.FilesAndStream.DeleteLastThreeLinesFromFile("E:\\ХНУРЄ\\C#\\OOP\\FilesAndStream\\FilesAndStream\\FilesAndStream\\bin\\Debug\\net6.0\\FileForDelete3Lines.txt");
+FilesAndStream.FilesAndStream.CreateBinaryFileWithSequence(5, 7);
 

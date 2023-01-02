@@ -135,6 +135,20 @@ namespace FilesAndStream
             
             File.WriteAllLines(path, newText);
         }
+
+        // 7. Створити бінарний файл, який зберігає послідовність 100 цілих чисел. Послідовність задається у консолі 2 числами. Початковим значенням та кроком. Так, якщо було введено "5 7", то послідовність виглядає як 5 12 19 26 ...
+        public static void CreateBinaryFileWithSequence(int initial, int step) 
+        {
+            using (BinaryWriter binaryWriter = new BinaryWriter(File.Open("intBinary.bin", FileMode.Create)))
+            {
+                binaryWriter.Write(initial);
+                for (int i = 0; i < 100; i++)
+                {
+                    int newInitial = initial + i * step;
+                    binaryWriter.Write(newInitial);
+                }
+            }
+        }
     }
 
 
