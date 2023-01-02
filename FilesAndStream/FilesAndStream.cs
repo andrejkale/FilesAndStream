@@ -85,7 +85,7 @@ namespace FilesAndStream
                 }
 
                 fileWriter.WriteLine(fileNameWithDate);
-                fileWriter.Close();
+                fileWriter.Close(); 
             }
             catch (IOException ex)
             {
@@ -124,6 +124,16 @@ namespace FilesAndStream
             Console.WriteLine("Lines in text file = " + linesCount);
             Console.WriteLine("Symbols in text file = " + symbolCount);
 
+        }
+
+        //6. Дано текстовий файл, що містить більше трьох рядків.Видалити з нього останні три рядки.
+        public static void DeleteLastThreeLinesFromFile(string path) 
+        {
+            string fileText = File.ReadAllText(path);
+            string[] text = fileText.Split('\n');
+            string[] newText = text.Take(text.Length - 3).ToArray();     
+            
+            File.WriteAllLines(path, newText);
         }
     }
 

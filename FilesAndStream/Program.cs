@@ -4,3 +4,5 @@ FilesAndStream.FilesAndStream.ShowFileNameInDirectory("E:\\ХНУРЄ\\C#\\OOP\\
 FilesAndStream.FilesAndStream.CreateFileWithListOfFilesInDirectory("listOfFiles.txt"
     , "E:\\ХНУРЄ\\C#\\OOP\\FilesAndStream\\FilesAndStream\\FilesAndStream\\bin\\Debug\\net6.0");
 FilesAndStream.FilesAndStream.CountLinesAndSymbolsInTextFile("E:\\ХНУРЄ\\C#\\OOP\\FilesAndStream\\FilesAndStream\\FilesAndStream\\bin\\Debug\\net6.0\\newText.txt");
+FilesAndStream.FilesAndStream.DeleteLastThreeLinesFromFile("E:\\ХНУРЄ\\C#\\OOP\\FilesAndStream\\FilesAndStream\\FilesAndStream\\bin\\Debug\\net6.0\\FileForDelete3Lines.txt");
+
